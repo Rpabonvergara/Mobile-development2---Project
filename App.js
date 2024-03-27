@@ -21,13 +21,14 @@ export default function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       // Update offset to move background image
-      setOffset(prevOffset => prevOffset - 2.5); // Adjust speed by changing the value here
+      setOffset(prevOffset => prevOffset - 1.5); // Adjust speed by changing the value here
     }, 100); // Adjust the interval as needed for desired speed
 
     return () => clearInterval(interval);
   }, []);
 
   const image = require('./assets/background.png');
+  const welcomeImage = require('./assets/startbackground.png');
 
   const handleScoreUpdate = () => {
     setScore(prevScore => prevScore + 1);
@@ -36,14 +37,21 @@ export default function App() {
   if (welcome) {
     return (
       <View style={styles.welcome}>
+        <ImageBackground
+        source={welcomeImage}
+        resizeMode="cover"
+        style={{ position: "absolute", top: 0, left: 0, bottom: 0, right: 0 }}
+      />
         {splashScreenVisible && <SplashScreen onHide={hideSplashScreen} />}
         {!splashScreenVisible && (
           <>
+            {/** 
             <Text style={styles.textWelcome}>
               Welcome Coyote Game! 
                 {"\n"}
               Press the button to start the game!
             </Text>
+            */}
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
@@ -64,7 +72,7 @@ export default function App() {
       <ImageBackground
         source={image}
         resizeMode="cover"
-        style={styles.imageWrapper}
+        style={{ position: "absolute", top: 0, left: offset, bottom: 0, right: 0 }}
       />
       {running && (
         <GameEngine
@@ -121,13 +129,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  imageWrapper: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-  },
+  
   gameEngine: {
     flex: 1,
     position: "absolute",
@@ -142,15 +144,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    backgroundColor: "black",
-    paddingHorizontal: 30,
-    paddingVertical: 10,
+    backgroundColor: "orange",
+    paddingHorizontal: 50,
+    paddingVertical: 20,
     marginTop: 20,
   },
   buttonText: {
     fontWeight: "bold",
     color: "white",
-    fontSize: 20,
+    fontSize: 30,
   },
   scoreText: {
     fontSize: 20,

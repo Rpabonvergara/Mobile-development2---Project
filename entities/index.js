@@ -26,36 +26,36 @@ export default restart => {
             world,
             "",
             { x: windowWidth + 200, y: windowHeight - 20 }, // position of enemy
-            { width:80, height: 80},
-            { isStatic: false,  image: Images.Cactus, label: "Cactus" }
+            { width: 80, height: 80 },
+            { isStatic: false, image: Images.Cactus, label: "Cactus" }
         ),
         Obstacule: Box(
             world,
             "",
             { x: windowWidth + 100, y: windowHeight - 150 }, // position of enemy
             { width: 80, height: 80 },
-            { isStatic: false,  image: Images.Obstacule, label: "Obstacule" }
+            { isStatic: false, image: Images.Obstacule, label: "Obstacule" }
         ),
         Camel: Box(
             world,
             "",
             { x: windowWidth + 100, y: windowHeight - 150 }, // position of enemy
-            { width: 80, height: 80},
-            { isStatic: false,  image: Images.Camel, label: "Camel" }
+            { width: 80, height: 80 },
+            { isStatic: false, image: Images.Camel, label: "Camel" }
         ),
         Lizard: Box(
             world,
             "",
             { x: windowWidth + 100, y: windowHeight - 150 }, // position of enemy
-            { width: 80, height: 80},
-            { isStatic: false,  image: Images.Lizard, label: "Lizard" }
+            { width: 100, height: 100 },
+            { isStatic: false, image: Images.Lizard, label: "Lizard" }
         ),
         Meerkat: Box(
             world,
             "",
             { x: windowWidth + 100, y: windowHeight - 150 }, // position of enemy
-            { width: 80, height: 80},
-            { isStatic: false,  image: Images.Meerkat, label: "Meerkat" }
+            { width: 80, height: 80 },
+            { isStatic: false, image: Images.Meerkat, label: "Meerkat" }
         ),
-       };
- };
+    };
+};

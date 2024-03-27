@@ -10,8 +10,8 @@ const windowWidth = Dimensions.get('window').width
 const Physics = (entities, { touches, time, dispatch }) => {
     let engine = entities.physics.engine;
 
-
     /*************Moving the Coyote wiht mosue Click/Touch  ****************/
+    /*
     let x = entities.Coyote.body.position.x;
     let y = entities.Coyote.body.position.y;
     touches.filter((t) => t.type === "move")
@@ -23,15 +23,19 @@ const Physics = (entities, { touches, time, dispatch }) => {
                 y: y,
             });
         });
-
+    */
     /*************TOUCHING / Clikcing the  Coyote ****************/
-    touches.filter(t => t.type === 'press')
-        .forEach(t => {
-            Matter.Body.setVelocity(entities.Coyote.body, {
-                x: 0,
-                y: -15
-            })
-        })
+    let canJump = true; // Flag to control if the coyote can jump
+
+    touches.filter(t => t.type === 'press').forEach(t => {
+        if (canJump) {
+            Matter.Body.applyForce(entities.Coyote.body, entities.Coyote.body.position, { x: 0, y: -0.05 });
+            canJump = false; // Prevent further jumping
+            setTimeout(() => {
+                canJump = true; // Allow jumping again after a delay
+            }, 200); // Adjust the delay as needed
+        }
+    });
     /*************Create enemies randomly from the floor every two seconds  ****************/
 
     if (time.current % 2000 < 10) {
@@ -49,7 +53,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
         });
         Matter.Body.setVelocity(entities.RoadRunner.body, {
             x: 0,
-            y: -10
+            y: -15
         });
 
         // Define enemy position
