@@ -29,7 +29,7 @@ const Physics = (entities, { touches, time, dispatch }) => {
 
     touches.filter(t => t.type === 'press').forEach(t => {
         if (canJump) {
-            Matter.Body.applyForce(entities.Coyote.body, entities.Coyote.body.position, { x: 0, y: -0.05 });
+            Matter.Body.applyForce(entities.Coyote.body, entities.Coyote.body.position, { x: 0, y: -0.03 });
             canJump = false; // Prevent further jumping
             setTimeout(() => {
                 canJump = true; // Allow jumping again after a delay
