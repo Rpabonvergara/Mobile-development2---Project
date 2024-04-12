@@ -103,36 +103,6 @@ const Physics = (entities, { touches, time, dispatch }) => {
             enemy.scored = true;
         }
     }
-    // Movimenta o RoadRunner e garante que ele não ultrapasse os limites da tela
-    /*let xRoadRunner = entities.RoadRunner.body.position.x;
-    let yRoadRunner = entities.RoadRunner.body.position.y;
-    const roadRunnerWidth = entities.RoadRunner.body.bounds.max.x - entities.RoadRunner.body.bounds.min.x;
-    const roadRunnerHeight = entities.RoadRunner.body.bounds.max.y - entities.RoadRunner.body.bounds.min.y;
-
-    // Limita o movimento do RoadRunner para a direita da tela
-    if (xRoadRunner + roadRunnerWidth > windowWidth) {
-        xRoadRunner = windowWidth - roadRunnerWidth;
-    }
-
-    // Limita o movimento do RoadRunner para a esquerda da tela
-    if (xRoadRunner < 0) {
-        xRoadRunner = 0;
-    }
-
-    // Limita o movimento do RoadRunner para a parte inferior da tela
-    if (yRoadRunner + roadRunnerHeight > windowHeight) {
-        yRoadRunner = windowHeight - roadRunnerHeight;
-    }
-
-    // Verifica se o RoadRunner ultrapassou os limites da tela para a direita e o reposiciona
-    if (xRoadRunner + roadRunnerWidth > windowWidth) {
-        xRoadRunner = initialRoadRunnerX;
-    }
-
-    Matter.Body.setPosition(entities.RoadRunner.body, {
-        x: xRoadRunner,
-        y: yRoadRunner,
-    });*/
 
     Matter.Engine.update(engine, time.delta);
 

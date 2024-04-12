@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "tilk1_bouncing_ball_backgrd_moving",
-    "slug": "snack-116a5c50-86b0-4c3b-bfea-14d760ee7348",
+    "name": "FinalMobileProject",
+    "slug": "Final-Mobile-Project",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +22,9 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
+    },
+    "fonts": {
+      "Kanit": "./assets/Kanit/Kanit-Regular.ttf"
     },
     "web": {
       "favicon": "./assets/favicon.png"
